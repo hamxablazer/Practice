@@ -19,18 +19,26 @@ public class UserDaoImpl implements UserDao {
 	}
 
 
-	public boolean verifyUser(String String) 
+	public boolean verifyUser(String email, String password) 
 	{
 		// TODO Auto-generated method stub
+		System.out.println(addUsers.get(0));
+		
+		//UserDaoImpl us = new UserDaoImpl();
+		boolean a = false;
 		
 		for (User us : addUsers )
 		{
-			if ( us.equals(email) && us.equals (password) )
+			if (us.getEmail()==email && us.getPassword()==password) // Once the student number matching with given number
 			{
-				return true;
+				System.out.println("test");
+				a = true;
 			}
+			else a = false;
+		
 		}
-		return false;
+		return a;
+		
 	}
 
 }

@@ -22,8 +22,7 @@ public class UserClient {
 		System.out.println("---------------------------");
 		System.out.println("    (1) Create Account     ");
 		System.out.println("        (2) Sign In        ");
-		System.out.println("(3) Check Registered Emails");
-		System.out.println("        (4) Sign Out       ");
+		System.out.println("        (3) Sign Out       ");
 		System.out.println("---------------------------");
 		
 		int choice = sc.nextInt();
@@ -51,16 +50,17 @@ public class UserClient {
 			
 		case 2:
 			
-				List<User> viewUsers = usDao.verifyUser();
+			System.out.print("Enter the email");
+			 email = sc.next();
+			 password = sc.next();
+			boolean viewUsers = usDao.verifyUser(email, password);
 				
 				
-				if(viewUsers.size() > 0)
+				if(viewUsers==true)
 				{
-				for (User ur : viewUsers)
-				{
-					System.out.println(ur.getEmail() + "\t" + ur.getPassword());
+				
+					System.out.println("Your "+email+"and "+ password+" matched");
 					
-				}
 				}
 				else 
 				{
@@ -69,24 +69,6 @@ public class UserClient {
 				
 				break;
 				
-		case 3:
-			
-			System.out.println(" Enter User Email ");
-			
-			User ub = usDao.verifyuser(sc.next());
-			
-			if(ub != null)
-			{
-				System.out.println(ub.getFname() + "\t" + ub.getLname() + "\t" + ub.getAddress() + "\t" + ub.getMobilenumber() + "\t" + ub.getEmail()  + "\t" + ub.getPassword());
-				
-			}
-			
-			else
-			{
-				System.out.println(" No Records for the Email ");
-			}
-			
-			break;
 			
 		case 4 : 
 			
